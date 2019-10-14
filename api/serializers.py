@@ -19,7 +19,13 @@ class UserCreateSerializer(serializers.ModelSerializer):
         return validated_data
 
 
-class PackagesSerializer(serializers.ModelSerializer):
+class PackagesListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Package
+        fields = ['title', 'image','price']
+
+
+class PackagesDetailSerializer(serializers.ModelSerializer):
     class Meta:
         model = Package
         fields = '__all__'
