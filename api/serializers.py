@@ -19,9 +19,11 @@ class UserCreateSerializer(serializers.ModelSerializer):
         return validated_data
 
 
-class packagesSerializer(serializers.ModelSerializer):
+class PackagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Package
+        fields = '__all__'
+
 
 
 

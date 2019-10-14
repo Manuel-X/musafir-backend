@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 
 class Package(models.Model):
@@ -9,5 +9,4 @@ class Package(models.Model):
     price =models.PositiveIntegerField()
     destination = models.CharField(max_length=10)
     duration = models.DurationField(default=timedelta(days=5))
-    # tours = models.TextField()
     
