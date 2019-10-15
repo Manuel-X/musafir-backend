@@ -2,7 +2,7 @@ from rest_framework.permissions import BasePermission
 
 
 
-#for modifying the booking (later) -samira
+#for modifying the booking (later) -samira  [ICEBOX FEATURE]
 class IsBookingOwner(BasePermission):
 	message = "You must be the owner of this booking"
 
