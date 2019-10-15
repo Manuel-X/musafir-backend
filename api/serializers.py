@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Package
+from .models import Package,Booking
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
 
@@ -31,7 +31,10 @@ class PackagesDetailSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-
+class BookingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        exclude = ['user','package']
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod

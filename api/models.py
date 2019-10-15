@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import timedelta
+from django.contrib.auth.models import User
 
 
 class Package(models.Model):
@@ -9,4 +10,15 @@ class Package(models.Model):
     price =models.PositiveIntegerField()
     destination = models.CharField(max_length=10)
     duration = models.DurationField(default=timedelta(days=5))
+    def __str__(self):
+        return "%s" % (str(self.title))
     
+    
+class Booking(models.Model):
+	user = models.ForeignKey(User, on_delete=models.CASCADE,  related_name="booker")#change this to one2one relation
+	package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name="bookings")#change this to one2one relation
+	date = models.DateField()
+	tickets = models.PositiveIntegerField()
+
+	def __str__(self):
+		return "%s: %s" % (self.user.username, str(self.Package))
