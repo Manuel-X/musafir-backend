@@ -18,8 +18,8 @@ class Package(models.Model):
 class Booking(models.Model):
 	user = models.ForeignKey(User, on_delete=models.CASCADE,  related_name="booker")#change this to one2one relation
 	package = models.ForeignKey(Package, on_delete=models.CASCADE, related_name="bookings")#change this to one2one relation
-	date = models.DateField(auto_now=True)
+	date_of_booking = models.DateField(auto_now=True)
 	tickets = models.PositiveIntegerField()
 
 	def __str__(self):
-		return "%s: %s booked on : %s" % (self.user.username, str(self.package),str(self.date))
+		return "%s: %s booked on : %s" % (self.user.username, str(self.package),str(self.date_of_booking))
